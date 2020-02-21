@@ -34,7 +34,7 @@ Demo Setup
 | Project Name                            | Cmod-A7-35T-OOB                   |
 | Use default location                    | Checked box                       |
 | OS Platform                             | standalone                        |
-| Target Hardware: Hardware Platform      | design_1_wrapper_hw_platform_0    |
+| Target Hardware: Hardware Platform      | user_35t_wrapper_hw_platform_0    |
 | Target Hardware: Processor              | microblaze_0                      |
 | Target Software: Language               | C                                 |
 | Target Software: Board Support Package  | Create New (Cmod-A7-35T-OOB_bsp)  |
