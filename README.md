@@ -17,57 +17,29 @@ Requirements
 * **Serial Terminal Emulator**: 
 * **MicroUSB Cable**
 
-Demo Setup
+Demo Setup (v2020.1-1)
 ----------
+**Note:** *Other releases may require other steps be taken to use them. Make sure to check the version of this README found in the commit associated with that release's tag for instructions.*
 
-1. Download the most recent release ZIP archive ("Cmod-A7-35T-OOB-2018.2-*.zip") from the repo's [releases page](https://github.com/Digilent/Cmod-A7-35T-OOB/releases).
-2. Extract the downloaded ZIP.
-3. Open the XPR project file, found at \<archive extracted location\>/vivado_proj/Cmod-A7-35T-OOB.xpr, included in the extracted release archive in Vivado 2020.1.
-4. In the toolbar at the top of the Vivado window, select **File -> Export -> Export Hardware**. Select **\<Local to Project\>** as the Exported Location and make sure that the **Include bitstream** box is checked, then click **OK**.
-5. In the toolbar at the top of the Vivado window, select **File -> Launch SDK**. Select **\<Local to Project\>** as both the workspace location and exported location, then click **OK**.
-6. With Vivado SDK opened, wait for the hardware platform exported by Vivado to be imported.
-7. In the toolbar at the top of the SDK window, select **File -> New -> Application Project**.
-8. Fill out the fields in the first page of the New Application Project Wizard as in the table below. Most of the listed values will be the wizard's defaults, but are included in the table for completeness.
-
-| Setting                                 | Value                             |
-| --------------------------------------- | --------------------------------- |
-| Project Name                            | Cmod-A7-35T-OOB                   |
-| Use default location                    | Checked box                       |
-| OS Platform                             | standalone                        |
-| Target Hardware: Hardware Platform      | user_35t_wrapper_hw_platform_0    |
-| Target Hardware: Processor              | microblaze_0                      |
-| Target Software: Language               | C                                 |
-| Target Software: Board Support Package  | Create New (Cmod-A7-35T-OOB_bsp)  |
-
-9. Click **Next**.
-10. From the list of template applications, select "Empty Application", then click **Finish**.
-11. In the Project Explorer pane to the left of the SDK window, expand the new application project (named "Cmod-A7-35T-OOB").
-12. Right click on the "src" subdirectory of the application project and select **Import**.
-13. In the "Select an import wizard" pane of the window that pops up, expand **General** and select **File System**. Then click **Next**.
-14. Fill out the fields of the "File system" screen as in the table below. Most of the listed values will be the defaults, but are included in the table for completeness.
-
-| Setting                                                | Value                                      |
-| -                                                      | -                                          |
-| From directory                                         | \<archive extracted location\>/sdk_appsrc  |
-| Files to import pane: sdk_appsrc                       | Checked box                                |
-| Into folder                                            | Cmod-A7-35T-OOB/src                        |
-| Options: Overwrite existing resources without warning  | Checked box                                |
-| Options: Create top-level folder                       | Unchecked box                              |
-
-15. Click **Finish**.
-
-<Note for maintainers: This project does not require any additional configuration of application or bsp projects. Projects that require any of this configuration should have the steps required to do so described here.>
-
-16. Open a serial terminal application (such as TeraTerm) and connect it to the Cmod A7's serial port, using a baud rate of 9600.
-17. In the toolbar at the top of the SDK window, select **Xilinx -> Program FPGA**. Leave all fields as their defaults and click "Program".
-18. In the Project Explorer pane, right click on the "Cmod-A7-35T-OOB" application project and select "Run As -> Launch on Hardware (System Debugger)".
-19.The application will now be running on the Cmod A7. It can be interacted with as described in the first section of this README.
+1. Download the most recent release ZIP archives from the repo's [releases page](https://github.com/Digilent/Cmod-A7-35T-OOB/releases). 
+2. Open Vivado 2020.1.
+3. Open the XPR project file, found at \<archive extracted location\>/release/vivado-proj/Cmod-A7-35T-OOB.xpr, included in the extracted hardware release in Vivado 2020.1.
+4. No additional steps are required within Vivado. The project can be viewed, modified, and rebuilt, and a new platform can be exported, as desired.
+5. Open Vitis 2020.1. Choose an empty folder as the *Workspace* to launch into.
+6. With Vitis opened, click the **Import Project** button, under **PROJECT** in the welcome screen.
+7. Choose *Vitis project exported zip file* as the Import type, then click **Next**.
+8. **Browse** -sdk_appsrc- folder (found in the downloaded archive) **Open** it.
+9. Make sure that all boxes are checked in order to import each of the projects present in the archive will be imported, then click **Finish**.
+10. Connect the CMOD A7 to your computer via the MicroUSB programming cable, make sure the power source select jumper is set to USB or WALL (depending on whether you are using an external supply), then power on the board by flipping the power switch to the ON position.
+11. Open a serial terminal application (such as TeraTerm or PuTTY) and connect it to the CMOD-A7-35T's serial port, using a baud rate of 9600.
+12. In the *Assistant* pane at the bottom left of the Vitis window, right click on the project marked `[System]`, and select **Run** -> **Launch Hardware**. When the demo is finished launching, messages will be able to be seen through the serial terminal, and the buttons can be used as described in this document's *Description* section, above.
 
 Next Steps
 ----------
-This demo can be used as a basis for other projects by modifying the hardware platform in the Vivado project's block design or by modifying the SDK application project.
+This demo can be used as a basis for other projects by modifying the hardware platform in the Vivado project's block design or by modifying the Vitis application project.
+
+For technical support or questions, please post on the [Digilent Forum](forum.digilentinc.com).
 
 Additional Notes
---------------
-For more information on how this project is version controlled, refer to the [Digilent Vivado Scripts Repository](https://github.com/digilent/digilent-vivado-scripts)
-
+----------------
+For more information on how this project is version controlled, refer to the [digilent-vivado-scripts](https://github.com/digilent/digilent-vivado-scripts) and [digilent-vitis-scripts](https://github.com/digilent/digilent-vitis-scripts) repositories.
