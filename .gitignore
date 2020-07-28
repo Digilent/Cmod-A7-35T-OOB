@@ -1,5 +1,5 @@
 # ignore everything in workspace dir
-ws/*
+sw/ws/*
 # except the cleanup scripts
-!ws/cleanup.cmd
-!ws/cleanup.sh
+!sw/ws/cleanup.cmd
+!sw/ws/cleanup.sh
